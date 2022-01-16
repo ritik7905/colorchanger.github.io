@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+</head>
+<style>
+    body {
+        background-color: rgb(55, 36, 100);
+    }
+    
+    .theme {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+    
+    #clr_btn {
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        background-color: rgb(34, 6, 66);
+        color: rgb(133, 133, 133);
+        cursor: pointer;
+    }
+    
+    #clr_btn:hover {
+        margin-top: -10px;
+        margin-bottom: 10px;
+        transition: all 0.5s;
+        box-shadow: 0px 8px 16px #08a4af;
+    }
+</style>
+
+<body>
+    <div class="theme">
+        <div class="para">
+            <p id="color_text"></p>
+        </div>
+        <div class="btn">
+            <button id="clr_btn">Change Color</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    var btn = document.querySelector('#clr_btn');
+    var hax = document.querySelector('#color_text');
+
+    btn.onclick = () => {
+        var symbol = "0123456789ABCDEF";
+        var color = "#";
+
+        for (let i = 0; i < 6; i++) {
+            color = color + symbol[Math.floor(Math.random() * 16)];
+
+        }
+        document.body.style.backgroundColor = color;
+        hax.innerHTML = color;
+    }
+</script>
+
+</html>
